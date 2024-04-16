@@ -1,0 +1,71 @@
+version: '3.3'
+
+services:
+  webserver:
+    build:
+      context: ./requirements/nginx
+      dockerfile: Dockerfile
+    ports:
+      - "443:443"
+    volumes:
+      - ./wp-data:/var/www/html # bnisba l mariadb mountpoint atkon f :/var/lib/mysql
+    networks:
+      - docker-network
+    restart: always
+
+  wordpress:
+    build:
+      context: ./requirements/wordpress
+      dockerfile: Dockerfile
+    ports:
+      - "9000"
+    volumes:
+      - ./wp-data:/var/www/html 
+    depends_on:
+      - mariadb
+    environment:
+      - MYSQL_DATABASE
+      - MYSQL_USER
+      - MYSQL_PASSWORD
+
+    volumes: 
+      - ./wp-data:/var/www/html
+    networks:
+      - docker-network
+    restart: always
+  
+  mariadb:
+    build:
+      context: ./requirements/mariadb
+      dockerfile: Dockerfile
+    ports:
+      - "3306"
+    volumes:
+      - ./mysql:/var/lib/mysql #prefix ghaytbdl l /login/data
+    environment:
+      - MYSQL_DATABASE
+      - MYSQL_USER
+      - MYSQL_PASSWORD
+      - MYSQL_ROOT_PASSWORD
+    networks:
+      - docker-network
+    restart: always
+  
+
+volumes:
+  wp-data:
+    #driver_opts:
+      #type: none
+      #o: bind
+      #device: /home/login/data
+  mysql:
+    #driver_opts:
+      #type: none
+      #o: bind
+      #device: /home/login/data
+    #type: none: This option specifies that the volume is a bind mount. Bind mounts allow you to mount a specific directory on the host into the container, rather than letting Docker manage the volume's storage.
+    #o: bind: This option indicates that the mount should be a bind mount.
+    #device: /data/wp-db or device: /data/wp-files: These options specify the pat#h on the host that should be mounted into the container.
+
+networks:
+  docker-network:
