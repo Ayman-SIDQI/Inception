@@ -1,52 +1,56 @@
-version: '3.3'
 
 services:
-  webserver:
+  nginx:
+    #image: nginx
     build:
       context: ./requirements/nginx
       dockerfile: Dockerfile
+    container_name: nginx
     ports:
       - "443:443"
     volumes:
-      - ./wp-data:/var/www/html # bnisba l mariadb mountpoint atkon f :/var/lib/mysql
+      - wp-data:/var/www/html # bnisba l mariadb mountpoint atkon f :/var/lib/mysql
     networks:
       - docker-network
-    restart: always
+    depends_on:
+      - mariadb
+        #restart: always
 
   wordpress:
     build:
       context: ./requirements/wordpress
       dockerfile: Dockerfile
+    container_name: wordpress
     ports:
-      - "9000"
-    volumes:
-      - ./wp-data:/var/www/html 
+      - "9000:9000"
     depends_on:
       - mariadb
     environment:
-      - MYSQL_DATABASE
-      - MYSQL_USER
-      - MYSQL_PASSWORD
-
+      - MARIADB_USER
+      - MARIADB_PASSWORD
+      - MARIADB_DATABASE
+      - MARIADB_ROOT_PASSWORD
     volumes: 
-      - ./wp-data:/var/www/html
+      - wp-data:/var/www/html
     networks:
       - docker-network
     restart: always
   
   mariadb:
+    image: mariadb
     build:
       context: ./requirements/mariadb
       dockerfile: Dockerfile
+    container_name: mariadb 
     ports:
-      - "3306"
+      - "3306:3306"
     volumes:
-      - ./mysql:/var/lib/mysql #prefix ghaytbdl l /login/data
+      - mysql:/var/lib/mysql #prefix ghaytbdl l /login/data
     environment:
-      - MYSQL_DATABASE
-      - MYSQL_USER
-      - MYSQL_PASSWORD
-      - MYSQL_ROOT_PASSWORD
+      - MARIADB_USER
+      - MARIADB_PASSWORD
+      - MARIADB_DATABASE
+      - MARIADB_ROOT_PASSWORD
     networks:
       - docker-network
     restart: always
@@ -54,15 +58,15 @@ services:
 
 volumes:
   wp-data:
-    #driver_opts:
-      #type: none
-      #o: bind
-      #device: /home/login/data
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/asidqi/data/wp-data
   mysql:
-    #driver_opts:
-      #type: none
-      #o: bind
-      #device: /home/login/data
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/asidqi/data/mysql
     #type: none: This option specifies that the volume is a bind mount. Bind mounts allow you to mount a specific directory on the host into the container, rather than letting Docker manage the volume's storage.
     #o: bind: This option indicates that the mount should be a bind mount.
     #device: /data/wp-db or device: /data/wp-files: These options specify the pat#h on the host that should be mounted into the container.
