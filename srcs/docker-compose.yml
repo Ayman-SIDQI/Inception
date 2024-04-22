@@ -14,7 +14,7 @@ services:
       - docker-network
     depends_on:
       - mariadb
-        #restart: always
+    restart: always
 
   wordpress:
     build:
@@ -37,7 +37,7 @@ services:
     restart: always
   
   mariadb:
-    image: mariadb
+    #image: mariadb
     build:
       context: ./requirements/mariadb
       dockerfile: Dockerfile
