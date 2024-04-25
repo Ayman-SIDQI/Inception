@@ -37,7 +37,9 @@ RUN apk update && apk upgrade && apk add --no-cache \
     && chmod +x /usr/local/bin/wp 
 
 RUN mkdir -p /var/www/html \
-    && chmod 777 /var/www/html
+    && chmod 777 /var/www/html 
+#\
+    #&& chmod -R 0777 /var/www/wp-content
 
 COPY ./tools/wp-install.sh /var/www/html/wp-install.sh
 COPY ./conf/www.conf /etc/php82/php-fpm.d/
