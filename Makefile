@@ -31,6 +31,8 @@ clean:
 	docker compose -f $(COMPOSE_FILE) down
 	docker rm -f $(docker ps -aq)
 fclean:
+	docker compose -f $(COMPOSE_FILE) down
+	docker rmi $(docker images -q)
 	docker system prune -a
 	docker volume prune
 
