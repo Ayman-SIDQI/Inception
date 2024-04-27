@@ -30,6 +30,9 @@ services:
       - MARIADB_PASSWORD
       - MARIADB_DATABASE
       - MARIADB_ROOT_PASSWORD
+      - MARIADB_ADMIN_USER 
+      - MARIADB_EMAIL
+      - MARIADB_ADMIN_PWD
     volumes: 
       - wp-data:/var/www/html
     networks:
