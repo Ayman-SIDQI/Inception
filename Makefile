@@ -32,8 +32,9 @@ clean:
 	docker rm -f $(docker ps -aq)
 fclean:
 	docker compose -f $(COMPOSE_FILE) down
-	docker rmi $(docker images -q)
+	docker rmi -f  $(docker images -q)
 	docker system prune -a
 	docker volume prune
+	docker buildx prune
 
 .PHONY: help build start stop restart clean fclean

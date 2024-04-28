@@ -21,7 +21,7 @@ services:
       dockerfile: Dockerfile
     container_name: wordpress
     ports:
-      - "9000:9000"
+      - "9000"
     depends_on:
       - mariadb
     environment:
@@ -43,7 +43,7 @@ services:
       dockerfile: Dockerfile
     container_name: mariadb 
     ports:
-      - "3306:3306"
+      - "3306"
     volumes:
       - mysql:/var/lib/mysql #prefix ghaytbdl l /login/data
     environment:
@@ -55,7 +55,17 @@ services:
     networks:
       - docker-network
     restart: always
-  
+   
+  adminer:
+    build: 
+      context: ./requirements/bonus/adminer
+      dockerfile: Dockerfile
+    restart: always
+    container_name: adminer
+    ports:
+      - "8080:8080"
+    networks:
+      - docker-network
 
 volumes:
   wp-data:
@@ -78,3 +88,4 @@ secrets:
 
 networks:
   docker-network:
+    name: docker-network

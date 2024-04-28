@@ -17,8 +17,6 @@ RUN apk update && apk upgrade && apk add --no-cache \
     php-tokenizer \
     php-ctype \
     php-phar \
-    wget \
-    unzip \
     curl  \
     && curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
     && php wp-cli.phar --info \
