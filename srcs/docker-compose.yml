@@ -67,7 +67,26 @@ services:
     networks:
       - docker-network
 
+  grafana:
+    build:
+      context: ./requirements/bonus/grafana
+      dockerfile: Dockerfile
+    restart: always
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    networks:
+      - docker-network
+    volumes:
+      - gf-data:/var/www/grafana
+
+
 volumes:
+  gf-data:
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/asidqi/data/gf-data
   wp-data:
     driver_opts:
       type: none
