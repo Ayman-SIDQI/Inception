@@ -90,6 +90,22 @@ services:
     networks:
       - docker-network
 
+  redis:
+    build:
+      context: ./requirements/bonus/redis
+      dockerfile: Dockerfile
+    restart: always
+    container_name: redis
+    volumes:
+      - wp-data:/var/www/html
+    depends_on:
+      - wordpress
+
+    ports:
+      - "6379:6379"
+    networks:
+      - docker-network
+
 
 
 volumes:
