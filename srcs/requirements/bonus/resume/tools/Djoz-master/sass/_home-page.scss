@@ -1,0 +1,427 @@
+/*---------------------
+  Events
+-----------------------*/
+.event {
+  padding-bottom: 60px;
+
+  .section-title {
+    margin-bottom: 10px;
+    position: relative;
+
+    &:after {
+      position: absolute;
+      right: 46px;
+      top: 25px;
+      height: 2px;
+      width: 775px;
+      background: rgba(225, 225, 225, 0.3);
+      content: "";
+      z-index: -1;
+    }
+  }
+}
+
+.event__slider {
+
+  .col-lg-4 {
+    max-width: 100%;
+  }
+
+  &.owl-carousel {
+
+    .owl-stage-outer {
+      padding-top: 30px;
+      padding-bottom: 40px;
+    }
+
+    .owl-nav {
+      position: absolute;
+      right: 15px;
+      top: -50px;
+
+      button {
+        font-size: 22px;
+        color: $heading-color;
+        opacity: .5;
+        margin-right: 10px;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+
+.event__item {
+  box-shadow: 0px 3px 15px rgba(22, 41, 124, 0.1);
+}
+
+.event__item__pic {
+  height: 360px;
+  position: relative;
+
+  .tag-date {
+    position: absolute;
+    left: 0;
+    bottom: -21px;
+    width: 100%;
+    text-align: center;
+    
+    span {
+      font-size: 15px;
+      color: $white-color;
+      display: inline-block;
+      background: $primary-color;
+      padding: 12px 8px 9px 20px;
+    }
+  }
+}
+
+
+.event__item__text {
+  text-align: center;
+  padding: 45px 10px 25px;
+
+  h4 {
+    font-size: 26px;
+    font-weight: 700;
+    color: $heading-color;
+    margin-bottom: 10px;
+  }
+
+  p {
+    color: #888888;
+    margin-bottom: 0;
+
+    i {
+      color: $primary-color;
+      margin-right: 8px;
+      font-size: 17px;
+    }
+  }
+}
+
+/*---------------------
+  Track
+-----------------------*/
+.track {
+  padding-top: 120px;
+  padding-bottom: 40px;
+  overflow: hidden;
+
+  .section-title {
+    margin-bottom: 105px;
+  }
+}
+
+.track__content {
+  height: 502px;
+  overflow-y: auto;
+}
+
+.track__all {
+  text-align: right;
+  margin-bottom: 100px;
+}
+
+.jp-play {
+  position: relative;
+  height: 50px;
+  width: 50px;
+  background: transparent;
+  border: 2px solid #e1e1e1;
+  border-radius: 50%;
+
+  &:after {
+    position: absolute;
+    display: block;
+    left: 17px;
+    top: 12px;
+    width: 16px;
+    height: 20px;
+    background: url(../img/play-default.png);
+    content: "";
+  }
+}
+
+.jp-state-playing .jp-play {
+  background: $primary-color!important;
+  border-color: $primary-color!important;
+  
+  &:after {
+    background: url(../img/pause.png)!important;
+    left: 15px;
+    top: 12px;
+  }
+}
+
+.jp-audio .jp-play:focus {
+  background: $primary-color!important;
+  border-color: $primary-color!important;
+    
+  &:after {
+    background: url(../img/play.png);
+  }
+}
+
+.jp-seek-bar>div {
+  height: 5px;
+  background: #e1e1e1;
+  cursor: pointer;
+  width: 245px;
+}
+
+.player_bars {
+  width: 350px;
+  display: table;
+  padding-left: 50px;
+  position: relative;
+  padding-top: 25px;
+  float: left;
+  margin-right: 30px;
+}
+
+.jp-play-bar {
+  position: relative;
+  height: 100%;
+  background: $primary-color;
+  overflow: visible !important;
+}
+
+.jp-current-time {
+  font-size: 15px;
+  color: $heading-color;
+  position: absolute;
+  left: -50px;
+  top: -9px;
+}
+
+.jp-duration {
+  font-size: 15px;
+  color: $heading-color;
+  position: absolute;
+  right: 0;
+  top: 16px;
+}
+
+.player_controls_box {
+  width: 50px;
+  float: left;
+  margin-right: 20px;
+}
+
+.jp-mute {
+  font-size: 18px;
+  border: none;
+  background: none;
+  color: $heading-color;
+  position: absolute;
+  left: 0;
+  top: 13px;
+}
+
+.jp-volume-bar {
+  height: 5px;
+  width: 70px;
+  background: #e1e1e1;
+  cursor: pointer;
+}
+
+.jp-volume-bar-value {
+  background: $primary-color;
+  height: 100%;
+}
+
+.jp-volume-controls {
+  position: relative;
+  width: 95px;
+  float: left;
+  padding-left: 30px;
+  padding-top: 25px;
+}
+
+.single_player_container {
+  overflow: hidden;
+  margin-bottom: 40px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  h4 {
+    font-size: 26px;
+    color: $heading-color;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+}
+
+.track__pic {
+  position: relative;
+  z-index: 1;
+
+  &:after {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #f5f5f5;
+    content: "";
+    z-index: -1;
+  }
+
+  img {
+    position: relative;
+    top: -50px;
+    width: calc(100% - 40px);
+    margin-left: 40px;
+    height: 502px;
+  }
+}
+
+/*---------------------
+  Youtube
+-----------------------*/
+.youtube {
+  padding-bottom: 50px;
+
+  .section-title {
+    text-align: center;
+
+    h1 {
+      font-size: 90px;
+    }
+  }
+}
+
+.youtube__item {
+  @include transition(all, .3s);
+  margin-bottom: 30px;
+
+  &:hover {
+    box-shadow: 0px 3px 30px rgba(22, 41, 124, 0.1);
+  }
+}
+
+.youtube__item__pic {
+  height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .play-btn {
+    font-size: 16px;
+    color: $primary-color;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    display: inline-block;
+    line-height: 60px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+
+    i {
+        position: relative;
+        top: 2px;
+        left: 2px;
+    }
+
+    &:after {
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        height: 40px;
+        width: 40px;
+        background: $white-color;
+        border-radius: 50%;
+        content: "";
+        z-index: -1;
+    }
+}
+}
+
+.youtube__item__text {
+  padding: 25px 30px 20px 20px;
+  background: $white-color;
+
+  h4 {
+    font-size: 26px;
+    color: $heading-color;
+    line-height: 34px;
+    font-weight: 700;
+  }
+}
+
+/*---------------------
+  Countdown
+-----------------------*/
+.countdown {
+  padding-bottom: 560px;
+
+  &.countdown--page {
+    padding-top: 150px;
+    padding-bottom: 150px;
+  }
+}
+
+.countdown__text {
+  text-align: center;
+  margin-bottom: 36px;
+
+  h1 {
+    font-size: 90px;
+    color: $white-color;
+    font-family: 'Rockville Solid Regular';
+    color: $white-color;
+    margin-bottom: 25px;
+  }
+
+  h4 {
+    font-size: 26px;
+    font-family: 'Now Regular';
+    color: $white-color;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+  }
+
+}
+
+.countdown__timer {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.countdown__item {
+  display: inline-block;
+  margin-right: 80px;
+  margin-bottom: 30px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  span {
+    font-size: 90px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    color: $white-color;
+    display: block;
+    line-height: 100px;
+  }
+
+  p {
+    color: $white-color;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 0;
+  }
+}
+
+.buy__tickets {
+  text-align: center;
+}

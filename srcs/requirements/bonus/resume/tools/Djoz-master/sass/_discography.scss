@@ -1,0 +1,83 @@
+/*---------------------
+  Discography
+-----------------------*/
+.discography {
+    padding-bottom: 40px;
+    padding-top: 120px;
+    overflow: hidden;
+
+    .section-title {
+        margin-bottom: 90px;
+    }
+}
+
+.discography__item {
+    margin-bottom: 45px;
+    box-shadow: 0px 5px 10px rgba(22, 41, 124, 0.1);
+}
+
+.discography__item__pic {
+
+    img {
+        min-width: 100%;
+    }
+}
+
+.discography__item__text {
+    padding: 25px 30px 35px;
+    text-align: center;
+
+    span {
+        font-size: 18px;
+        color: $primary-color;
+        font-weight: 700;
+    }
+
+    h4 {
+        font-size: 22px;
+        text-transform: uppercase;
+        color: $heading-color;
+        margin-top: 10px;
+        margin-bottom: 25px;
+    }
+
+    a {
+        display: inline-block;
+        margin-right: 10px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+.pagination__links {
+    text-align: center;
+    padding-top: 10px;
+
+    &.blog__pagination {
+        text-align: left;
+    }
+
+    a {
+        display: inline-block;
+        font-size: 15px;
+        color: $heading-color;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        background: #f2f2f2;
+        @include transition(all, .3s);
+        margin-right: 6px;
+        margin-bottom: 5px;
+        padding: 14px 22px 12px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        &:hover {
+            background: #290849;
+            color: $white-color;
+        }
+    }
+}

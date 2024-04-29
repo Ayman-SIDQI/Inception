@@ -1,0 +1,54 @@
+/*---------------------
+  Feature
+-----------------------*/
+.feature {
+  padding-bottom: 70px;
+
+  &.feature--about {
+
+    .section-title {
+
+      span {
+        color: #0071e4;
+      }
+    }
+    
+    .feature__item {
+      background: #f5f5f5;
+
+      h5 {
+        color: $heading-color;
+      }
+    }
+  }
+}
+
+.feature__text {
+  padding-top: 80px;
+
+  .section-title {
+    margin-bottom: 20px;
+  }
+
+  p {
+    margin-bottom: 26px;
+  }
+}
+
+.feature__item {
+  background: $secondary-color;
+  text-align: center;
+  padding: 40px 10px 35px;
+  margin-bottom: 30px;
+
+  &.right-column {
+    margin-top: 120px;
+  }
+
+  h5 {
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $white-color;
+    margin-top: 25px;
+  }
+}

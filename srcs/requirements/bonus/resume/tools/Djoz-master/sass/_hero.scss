@@ -1,0 +1,96 @@
+/*---------------------
+  Hero
+-----------------------*/
+.hero {
+    padding-top: 400px;
+    padding-bottom: 295px;
+    position: relative;
+}
+
+.hero__text {
+    text-align: center;
+
+    span {
+        color: $white-color;
+        text-transform: uppercase;
+        letter-spacing: 6px;
+    }
+    
+    h1 {
+        font-size: 110px;
+        font-family: 'Rockville Solid Regular';
+        color: $white-color;
+        margin-bottom: 20px;
+        margin-top: 22px;
+    }
+
+    p {
+        color: $white-color;
+        margin-bottom: 20px;
+    }
+
+    .play-btn {
+        font-size: 26px;
+        color: $primary-color;
+        height: 90px;
+        width: 90px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+        display: inline-block;
+        line-height: 90px;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+
+        i {
+            position: relative;
+            top: 2px;
+            left: 2px;
+        }
+
+        &:after {
+            position: absolute;
+            left: 15px;
+            top: 15px;
+            height: 60px;
+            width: 60px;
+            background: $white-color;
+            border-radius: 50%;
+            content: "";
+            z-index: -1;
+        }
+    }
+}
+
+.linear__icon {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    margin-left: -16px;
+    animation: mymove 0.5s infinite alternate;
+
+    i {
+        font-size: 50px;
+        color: $primary-color;
+    }
+}
+
+@-webkit-keyframes mymove {
+
+    0% {
+        bottom: 0;
+    }
+    100% {
+        bottom: -10px;
+    }
+}
+
+@keyframes mymove {
+
+    0% {
+        bottom: 0;
+    }
+    100% {
+        bottom: -10px;
+    }
+}

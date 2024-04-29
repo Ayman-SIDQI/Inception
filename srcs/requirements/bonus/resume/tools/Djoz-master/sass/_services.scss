@@ -1,0 +1,72 @@
+/*---------------------
+  Services
+-----------------------*/
+.services {
+    overflow: hidden;
+}
+
+.services__left {
+    height: 640px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .play-btn {
+        font-size: 26px;
+        color: $white-color;
+        height: 90px;
+        width: 90px;
+        border-radius: 50%;
+        background: linear-gradient(to right, rgba(127, 0, 173, 0.3), rgba(93, 0, 206, 0.3));
+        display: inline-block;
+        line-height: 90px;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+
+        i {
+            position: relative;
+            top: 2px;
+            left: 2px;
+        }
+
+        &:after {
+            position: absolute;
+            left: 15px;
+            top: 15px;
+            height: 60px;
+            width: 60px;
+            background: linear-gradient(to right, #7E00AD, #5C00CE);
+            border-radius: 50%;
+            content: "";
+            z-index: -1;
+        }
+    }
+}
+
+.services__list {
+    margin: 0;
+}
+
+.service__item {
+    background: $primary-color;
+    height: 320px;
+    padding: 70px 40px 40px 70px;
+
+    &.deep-bg {
+        background: #5400BC;
+    }
+
+    h4 {
+        font-size: 26px;
+        color: $white-color;
+        font-weight: 700;
+        margin-top: 25px;
+        margin-bottom: 10px;
+    }
+
+    p {
+        color: $white-color;
+        margin-bottom: 0;
+    }
+}

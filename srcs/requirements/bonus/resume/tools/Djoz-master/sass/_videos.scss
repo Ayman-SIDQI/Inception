@@ -1,0 +1,166 @@
+/*---------------------
+  Videos
+-----------------------*/
+.videos {
+  padding-bottom: 90px;
+
+  .section-title {
+    margin-bottom: 70px;
+  }
+}
+
+.videos__large__item {
+  height: 585px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+
+  .play-btn {
+    height: 50px;
+    width: 50px;
+    background: $primary-color;
+    border-radius: 50%;
+    font-size: 18px;
+    line-height: 50px;
+    text-align: center;
+    display: inline-block;
+    color: $white-color;
+  }
+}
+
+.videos__large__item__text {
+  background: rgba(7, 14, 38, 0.7);
+  padding: 25px 30px 25px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+
+  h4 {
+    color: $white-color;
+    font-weight: 700;
+  }
+
+  ul {
+
+    li {
+      font-size: 13px;
+      list-style: none;
+      display: inline-block;
+      margin-right: 18px;
+      color: $white-color;
+      position: relative;
+
+      &:after {
+        position: absolute;
+        right: -12px;
+        top: 2px;
+        height: 17px;
+        width: 1px;
+        background: $white-color;
+        content: "";
+      }
+
+      &:last-child {
+        margin-right: 0;
+
+        &:after {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.videos__item__pic {
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .play-btn {
+    height: 40px;
+    width: 40px;
+    background: $primary-color;
+    border-radius: 50%;
+    font-size: 16px;
+    line-height: 40px;
+    text-align: center;
+    display: inline-block;
+    color: $white-color;
+  }
+}
+
+.videos__item__text {
+  padding-top: 20px;
+
+  h5 {
+    color: $heading-color;
+    font-weight: 700;
+    line-height: 26px;
+    margin-bottom: 5px;
+  }
+
+  ul {
+
+    li {
+      font-size: 13px;
+      list-style: none;
+      display: inline-block;
+      margin-right: 18px;
+      color: $primary-color;
+      position: relative;
+
+      &:after {
+        position: absolute;
+        right: -12px;
+        top: 2px;
+        height: 17px;
+        width: 1px;
+        background: #888888;
+        content: "";
+      }
+
+      &:last-child {
+        margin-right: 0;
+        color: #888888;
+
+        &:after {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.videos__slider {
+
+  .col-lg-3 {
+    max-width: 100%;
+  }
+
+  &.owl-carousel {
+
+    .owl-nav {
+
+      button {
+        font-size: 18px;
+        color: #888888;
+        height: 50px;
+        width: 25px;
+        background: $white-color;
+        line-height: 50px;
+        position: absolute;
+        left: 15px;
+        top: 22%;
+
+        &.owl-next {
+          left: auto;
+          right: 15px;
+        }
+      }
+    }
+  }
+}

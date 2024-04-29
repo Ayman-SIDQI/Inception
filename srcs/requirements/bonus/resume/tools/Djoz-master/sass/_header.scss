@@ -1,0 +1,146 @@
+/*---------------------
+  Header
+-----------------------*/
+.header {
+    background: rgba(42, 1, 74, 0.5);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 9;
+
+    &.header--normal {
+        position: relative;
+        background: #290849;
+    }
+}
+
+.header__logo {
+    padding: 20px 0 25px;
+
+    a {
+        display: inline-block;
+    }
+}
+
+.header__nav {
+    text-align: right;
+}
+
+.header__menu {
+    padding: 31px 0 27px;
+    display: inline-block;
+    margin-right: 45px;
+
+    ul {
+
+        li {
+            list-style: none;
+            display: inline-block;
+            margin-right: 45px;
+            position: relative;
+
+            &.active {
+
+                a {
+                    
+                    
+                    &:after {
+                        opacity: 1;
+                    }
+                }
+            }
+
+            &:hover {
+
+                a {
+                    
+                    &:after {
+                        opacity: 1;
+                    }
+                }
+
+                .dropdown {
+                    top: 34px;
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            .dropdown {
+                position: absolute;
+                left: 0;
+                top: 56px;
+                width: 150px;
+                background: $heading-color;
+                text-align: left;
+                padding: 2px 0;
+                z-index: 9;
+                opacity: 0;
+                visibility: hidden;
+                @include transition(all, .3s);
+
+                li {
+                    display: block;
+                    margin-right: 0;
+
+                    a {
+                        font-size: 14px;
+                        color: $white-color;
+                        font-weight: 400;
+                        padding: 8px 20px;
+                        text-transform: capitalize;
+
+                        &:after {
+                            display: none;
+                        }
+                    }
+                }
+            }
+
+            a {
+                font-size: 15px;
+                text-transform: uppercase;
+                color: $white-color;
+                display: block;
+                padding: 6px 0;
+                position: relative;
+
+                &:after {
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    width: 100%;
+                    height: 2px;
+                    background: $white-color;
+                    content: '';
+                    @include transition(all, .5s);
+                    opacity: 0;
+                }
+            }
+        }
+    }
+}
+
+.header__right__social {
+    display: inline-block;
+
+    a {
+        display: inline-block;
+        font-size: 16px;
+        color: $white-color;
+        margin-right: 16px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+.slicknav_menu {
+    display: none;
+}

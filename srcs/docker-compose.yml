@@ -79,6 +79,17 @@ services:
       - docker-network
     volumes:
       - gf-data:/var/www/grafana
+  resume:
+    build:
+      context: ./requirements/bonus/resume
+      dockerfile: Dockerfile
+    restart: always
+    container_name: resume
+    ports:
+      - "4444:4444"
+    networks:
+      - docker-network
+
 
 
 volumes:
