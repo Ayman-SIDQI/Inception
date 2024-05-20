@@ -8,7 +8,7 @@ services:
     ports:
       - "443:443"
     volumes:
-      - wp-data:/var/www/html # bnisba l mariadb mountpoint atkon f :/var/lib/mysql
+      - wp-data:/var/www/html
     networks:
       - docker-network
     depends_on:
@@ -20,7 +20,7 @@ services:
       context: ./requirements/wordpress
       dockerfile: Dockerfile
     container_name: wordpress
-    ports:
+    expose:
       - "9000"
     depends_on:
       - mariadb
@@ -36,28 +36,29 @@ services:
       - wp-data:/var/www/html
     networks:
       - docker-network
-    restart: always 
+    restart: always
+  
   mariadb:
     build:
       context: ./requirements/mariadb
       dockerfile: Dockerfile
     container_name: mariadb 
-    ports:
+    expose:
       - "3306"
     volumes:
-      - mysql:/var/lib/mysql #prefix ghaytbdl l /login/data
+      - mysql:/var/lib/mysql
     environment:
       - MARIADB_USER
+      - MARIADB_PASSWORD
       - MARIADB_DATABASE
-        #- MARIADB_ROOT_PASSWORD
-    secrets:
-      - db_password 
+      - MARIADB_ROOT_PASSWORD
+      - MARIADB_EMAIL
     networks:
       - docker-network
     restart: always
-   
+
   adminer:
-    build: 
+    build:
       context: ./requirements/bonus/adminer
       dockerfile: Dockerfile
     restart: always
@@ -90,25 +91,8 @@ services:
     networks:
       - docker-network
 
-  redis:
-    build:
-      context: ./requirements/bonus/redis
-      dockerfile: Dockerfile
-    restart: always
-    container_name: redis
-    volumes:
-      - wp-data:/var/www/html
-    depends_on:
-      - wordpress
-
-    ports:
-      - "6379:6379"
-    networks:
-      - docker-network
-
-
-
 volumes:
+
   gf-data:
     driver_opts:
       type: none
@@ -124,14 +108,6 @@ volumes:
       type: none
       o: bind
       device: /home/asidqi/data/mysql
-    #type: none: This option specifies that the volume is a bind mount. Bind mounts allow you to mount a specific directory on the host into the container, rather than letting Docker manage the volume's storage.
-    #o: bind: This option indicates that the mount should be a bind mount.
-    #device: /data/wp-db or device: /data/wp-files: These options specify the pat#h on the host that should be mounted into the container.
-
-secrets:
-   db_password:
-     file: ../secrets/db_passwords.txt
 
 networks:
   docker-network:
-    name: docker-network

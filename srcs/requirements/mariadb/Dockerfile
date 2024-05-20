@@ -1,5 +1,4 @@
 FROM debian:11-slim
-##FROM alpine:3.19.1
 
 
 # Update package list and install MariaDB server
@@ -14,11 +13,9 @@ RUN mkdir -p /run/mysqld \
 
 # Configure MariaDB to listen on all interfaces
 RUN sed -i 's/127.0.0.1/0.0.0.0/' /etc/mysql/mariadb.conf.d/50-server.cnf 
-#&& sed -i 's|skip-networking|#skip-networking|g' /etc/mysql/mariadb.cnf
 
 COPY tools/setup.sh /usr/local/bin/setup.sh
 
-#COPY tools/my.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
 
 RUN chown -R mysql:root /var/run/mysqld
 

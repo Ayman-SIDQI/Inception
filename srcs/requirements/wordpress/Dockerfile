@@ -12,11 +12,13 @@ RUN apk update && apk upgrade && apk add --no-cache \
     php-fileinfo \
     php-mbstring \
     php-openssl \
+    php-redis \
     php-xml \
     php-zip \
     php-tokenizer \
     php-ctype \
     php-phar \
+    unzip \
     curl  \
     && curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
     && php wp-cli.phar --info \

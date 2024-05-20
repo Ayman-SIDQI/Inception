@@ -7,7 +7,7 @@ RUN apk add --no-cache nginx
 COPY tools/ /
 COPY tools/default.conf /etc/nginx/http.d/default.conf
 
-RUN chmod -R 0777 /Djoz-master/ 
+RUN chmod -R 0777 /Djoz-master/
 
 EXPOSE 4444
 

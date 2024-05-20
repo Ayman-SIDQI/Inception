@@ -9,5 +9,3 @@ EXPOSE 3000
 
 WORKDIR /var/www/grafana-v10.4.2/bin/
 CMD ["./grafana-server"]
-
-#CMD [ "./grafana-v10.4.2/bin/grafana", "server"]
